@@ -7,6 +7,7 @@ import { reflectionRequestSchema } from './schema.js';
 
 export function createApp(generator: ReflectionGenerator) {
   const app = express();
+  app.set('trust proxy', 1);
   app.disable('x-powered-by');
   app.use(express.json({ limit: '128kb', strict: true }));
   app.use('/api', rateLimit({
